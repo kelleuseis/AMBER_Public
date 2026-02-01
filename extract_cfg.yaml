@@ -1,0 +1,133 @@
+---
+data_defaults:
+    base_dir: "~/Projects/AMBER_Public"
+    
+data_config:
+    eventdatadir: "${data_defaults.base_dir}/Data/EventWaveforms"
+    noisedatadir: "${data_defaults.base_dir}/Data/NoiseWaveforms"
+    catalogdir: "${data_defaults.base_dir}/Data/Catalogs"
+    outputdir: "${data_defaults.base_dir}/Data/AMBER_Seisbench"
+    windowlength: 2000
+    traintestsplit: 0.85
+    trainvalsplit: 0.82
+    datasets: 
+        - name: 'Aneth'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 9
+          minspicks: 9
+          plen: 0.1
+          slen: 0.2
+          role: 'multi'
+        - name: 'PNR-1'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 16
+          minspicks: 16
+          plen: 0.02
+          slen: 0.04
+          role: 'multi'
+        - name: 'Clearfield_mw4'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.01
+          slen: 0.02
+          role: 'multi'
+        - name: 'Clearfield_mw6'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.01
+          slen: 0.02
+          role: 'multi'
+        - name: 'MSEEL_3H'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.01
+          slen: 0.02
+          role: 'multi'
+        - name: 'MSEEL_5H'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.01
+          slen: 0.02
+          role: 'multi'
+        - name: 'FORGE_19'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.015
+          slen: 0.025
+          role: 'multi'
+        - name: 'FORGE_22'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 6
+          minspicks: 6
+          plen: 0.02
+          slen: 0.04
+          role: 'multi'
+        - name: 'CottonValley_StgB'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.01
+          slen: 0.01
+          role: 'multi'
+        - name: 'PNR-1'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'Clearfield_mw4'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'Clearfield_mw6'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'MSEEL_3H'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'MSEEL_5H'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'FORGE_19'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
