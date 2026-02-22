@@ -5,7 +5,7 @@ import os
 from dataclasses import dataclass, field
 from typing import List, Dict, Any
 
-from registry import labeller_registry
+from amber.registry import labeller_registry
 
 
 @dataclass
@@ -24,4 +24,4 @@ labeller_dir = os.path.dirname(__file__)
 for file in os.listdir(labeller_dir):
     if file.endswith(".py") and not file.startswith("_"):
         module_name = file[:-3]
-        importlib.import_module(f"Labeller.{module_name}")
+        importlib.import_module(f"{__name__}.{module_name}")

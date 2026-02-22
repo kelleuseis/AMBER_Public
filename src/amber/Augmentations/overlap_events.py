@@ -1,9 +1,9 @@
 import numpy as np
 from itertools import chain
 
-from registry import augmentation_registry
-from Augmentations.base_augmentation import BaseAugmentation, AugmentationRequest
-from Augmentations.utils import normalise_addwave
+from amber.registry import augmentation_registry
+from .base_augmentation import BaseAugmentation, AugmentationRequest
+from .utils import normalise_addwave
 
     
     

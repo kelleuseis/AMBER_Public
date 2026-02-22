@@ -1,6 +1,6 @@
 '''
 Defines registries used across modules to enable Hydra/YAML-driven configuration
-and dynamic object instantiation. See extract.py for usage examples.
+and dynamic object instantiation.
 '''
 class Registry:
     def __init__(self):

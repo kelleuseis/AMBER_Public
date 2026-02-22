@@ -3,8 +3,8 @@ import torch.nn.functional as F
 import torch.nn as nn
 import numpy as np
 
-from Labeller.base_labeller import BaseLabeller
-from registry import labeller_registry
+from .base_labeller import BaseLabeller
+from amber.registry import labeller_registry
 
 
 @labeller_registry.register("tapered_labeller")

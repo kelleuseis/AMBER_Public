@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.signal import resample_poly
 
-from registry import augmentation_registry
-from Augmentations.base_augmentation import BaseAugmentation, AugmentationRequest
+from amber.registry import augmentation_registry
+from .base_augmentation import BaseAugmentation, AugmentationRequest
 
     
     

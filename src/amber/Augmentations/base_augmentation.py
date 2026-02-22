@@ -1,7 +1,7 @@
 import numpy as np
 import random, logging, abc
 
-from registry import augmentation_registry
+from amber.registry import augmentation_registry
 
 
 class AugmentationRequest:
@@ -34,11 +34,11 @@ class BaseAugmentation(abc.ABC):
     augment_chance: float
         probability [0, 1] of applying augmentation
         
-    log_level: str
+    log_level: None or str
         logging level ("ERROR", "WARNING", "INFO", "DEBUG")
     '''
     required_params = []
-    optional_params = {"augment_chance":0.4, "log_level":"INFO"}    
+    optional_params = {"augment_chance":0.4, "log_level":None}    
     scope: str = None    # "raw" or "windowed"
         
     def __init_subclass__(cls):
@@ -54,13 +54,12 @@ class BaseAugmentation(abc.ABC):
         }
         initialize_params(self, param_dict, self.required_params, merged_optional_params)
         
-        # Logger
-        self.logger = logging.getLogger(__name__)
-        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-        log_level = getattr(logging, self.log_level.upper(), logging.INFO)
-        self.logger.setLevel(log_level)  
-    
+        self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")  
+        if self.log_level is not None:
+            level = getattr(logging, self.log_level.upper(), None)
+            if level is not None:
+                self.logger.setLevel(level)
+                
     
     def augment_raw(self, waves_all, eventdf, samplerate=None):
         '''

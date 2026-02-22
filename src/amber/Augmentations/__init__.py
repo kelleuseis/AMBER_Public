@@ -5,7 +5,7 @@ import os
 from dataclasses import dataclass, field
 from typing import List, Dict, Any
 
-from registry import augmentation_registry
+from amber.registry import augmentation_registry
 
 
 @dataclass
@@ -28,4 +28,4 @@ augmentations_dir = os.path.dirname(__file__)
 for file in os.listdir(augmentations_dir):
     if file.endswith(".py") and not file.startswith("_"):
         module_name = file[:-3]
-        importlib.import_module(f"Augmentations.{module_name}")
+        importlib.import_module(f"{__name__}.{module_name}")

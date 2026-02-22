@@ -1,15 +1,19 @@
 ---
 data_defaults:
-    base_dir: "~/Projects/AMBER_Public"
-    
+    base_dir: "${oc.env:AMBER_DATA_ROOT}"
+
+backend_config:
+    is_zip: True
+    zipfilepath: null
+    eventdatadir: "${data_defaults.base_dir}/raw/EventWaveforms"
+    noisedatadir: "${data_defaults.base_dir}/raw/NoiseWaveforms"
+    catalogdir: "${data_defaults.base_dir}/raw/Catalogs"
+
 data_config:
-    eventdatadir: "${data_defaults.base_dir}/Data/EventWaveforms"
-    noisedatadir: "${data_defaults.base_dir}/Data/NoiseWaveforms"
-    catalogdir: "${data_defaults.base_dir}/Data/Catalogs"
-    outputdir: "${data_defaults.base_dir}/Data/AMBER_Seisbench"
-    windowlength: 2000
+    outputdir: null
     traintestsplit: 0.85
     trainvalsplit: 0.82
+    seed: 42
     datasets: 
         - name: 'Aneth'
           category: 'event'
@@ -30,6 +34,16 @@ data_config:
           minspicks: 16
           plen: 0.02
           slen: 0.04
+          role: 'test'
+        - name: 'PNR-2'
+          category: 'event'
+          samplerate: 2000
+          N: 1000
+          snrmin: 15
+          minppicks: 8
+          minspicks: 8
+          plen: 0.015
+          slen: 0.03
           role: 'multi'
         - name: 'Clearfield_mw4'
           category: 'event'
@@ -105,6 +119,11 @@ data_config:
           category: 'noise'
           samplerate: 2000
           N: 1000
+          role: 'test'
+        - name: 'PNR-2'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
           role: 'multi'
         - name: 'Clearfield_mw4'
           category: 'noise'
@@ -127,6 +146,11 @@ data_config:
           N: 1000
           role: 'multi'
         - name: 'FORGE_19'
+          category: 'noise'
+          samplerate: 2000
+          N: 1000
+          role: 'multi'
+        - name: 'FORGE_22'
           category: 'noise'
           samplerate: 2000
           N: 1000

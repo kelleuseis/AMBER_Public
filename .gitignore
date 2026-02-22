@@ -1,19 +1,11 @@
-Seisbench/
-ethz/
-ceed/
-stead/
-csv_examples/
-Catalogs/
-EventWaveforms/
-NoiseWaveforms/
 outputs/
-DataIngestion/
-Attr/
 Data/
 
-*.ipynb
-.ipynb_checkpoints/
+test_notebook.ipynb
 
 __pycache__/
+build/
 .DS_Store
+.ipynb_checkpoints/
+*.egg-info/
 

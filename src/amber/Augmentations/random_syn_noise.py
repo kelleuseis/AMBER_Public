@@ -1,9 +1,9 @@
 import numpy as np
 from scipy import signal
 
-from registry import augmentation_registry
-from Augmentations.base_augmentation import BaseAugmentation, AugmentationRequest
-from Augmentations.utils import log_range_random, normalise_addwave
+from amber.registry import augmentation_registry
+from .base_augmentation import BaseAugmentation, AugmentationRequest
+from .utils import log_range_random, normalise_addwave
 
 def generate_gaussian_noise(
     nsta, ndp, samplerate, lowfreq_min, lowfreq_max, highfreq_min, highfreq_max

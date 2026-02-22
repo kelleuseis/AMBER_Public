@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools<=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amber"
+version = "0.1.0"
+description = "AMBER: The AI-Ready Downhole Microseismic Benchmark Database"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Kelvis Leung", email = "kelvis.leung@bristol.ac.uk" }
+]
+license = { text = "GPLv3" }
+dependencies = [
+    "numpy>=1.22,<2",
+    "torch>=2.1",
+    "pandas",
+    "h5py",
+    "obspy",
+    "scipy",
+    "omegaconf",
+    "hydra-core",
+    "matplotlib",
+    "tqdm"
+]
+
+[project.optional-dependencies]
+dev = ["yamllint", "pytest"]
+seisbench = ["seisbench"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["amber*"]
+
+[project.urls]
+GitHub = "https://github.com/kelleuseis/AMBER_Public"
