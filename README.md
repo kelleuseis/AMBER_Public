@@ -72,10 +72,27 @@ E.g. through <code>extract_cfg.yaml</code>:
 ```bash
 backend_config:
     is_zip: True    # Extract from zip
-    zipfilepath: null    # Zip filepath - amber_raw_segy.zip is auto-downloaded by default if None
+    zipfilepath: null    # Zip filepath - amber_raw_segy.zip is auto-downloaded if set to None and default filepath (AMBER_DATA_RAW/amber_raw_segys.zip) does not exist
     eventdatadir: "${data_defaults.base_dir}/raw/EventWaveforms"   # Directory path containing event waveform SEGY sub-directories (used when is_zip is False)
     noisedatadir: "${data_defaults.base_dir}/raw/NoiseWaveforms"    # Directory path containing noise waveform SEGY sub-directories (used when is_zip is False)
     catalogdir: "${data_defaults.base_dir}/raw/Catalogs"    # Directory path containing event catalogue CSVs (used when is_zip is False)
+
+data_config:
+    outputdir: null    # Output directory for waveforms.hdf5 and metadata.csv - uses default AMBER_DATA_COMPILED path if set to None
+    traintestsplit: 0.85    # Proportion of data [0-1] assigned to training
+    trainvalsplit: 0.82    # Proportion of training data [0-1] used for training
+    seed: 42    # For deterministic dataset generation
+    datasets:
+        - name: 'Aneth'    # Dataset name
+          category: 'event'    # 'event' or 'noise' catalogue
+          samplerate: 2000    # Sampling rate in Hz
+          N: 1000    # Maximum number of samples to read in
+          snrmin: 15    # Minimum median SNR from dataset for a useable event
+          minppicks: 9    # Minimum number of P-wave picks from this dataset for a useable event
+          minspicks: 9    # Minimum number of S-wave picks from this dataset for a useable event
+          plen: 0.1    # Length of typical P-wave window for this dataset
+          slen: 0.2    # Length of typical S-wave window for this dataset
+          role: 'multi'    # "train", "test", or "dev" ("multi" for random splitting)
 ```
 
 The raw SEGY zip file <code>amber_raw_segys.zip</code> has the following structure (<code>XXXX</code> is the dataset name):
