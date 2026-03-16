@@ -1,4 +1,7 @@
 # AMBER
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-orange.svg)](https://www.gnu.org/licenses/gpl-3.0) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18944111.svg)](https://doi.org/10.5281/zenodo.18944111)
+
+
 AMBER contains labelled waveforms from microseismic events recorded on deep downhole sensor arrays, generated to stimulate research and development in the use of AI tools for downhole microseismic processing tasks. Raw SEGY waveforms can be converted into [Seisbench](https://github.com/seisbench/seisbench)-compatible datasets (<code>waveforms.hdf5</code> + <code>metadata.csv</code>) using the extraction pipeline <code>extract.py</code>. This repository also provides an event-centric PyTorch dataset with configurable downhole-specific augmentations for training deep-learning models on multi-station, multi-event waveforms.
 
 AMBER has been compiled from 10 datasets (or sub-datasets):
